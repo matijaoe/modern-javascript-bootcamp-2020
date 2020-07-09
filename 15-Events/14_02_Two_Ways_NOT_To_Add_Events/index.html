@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>2 Ways NOT to Add Event Listeners</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+  <!-- BOOOOOOO Don't do this! -->
+  <button onmouseover="alert('YOU CLICKED ME')">Click Me!</button>
+  <!-- OR THIS! -->
+  <button onclick="alert('YOU CLICKED ME TOO!')">Click Me TOO!</button>
+
+  <button id="clicker">CLICKER</button>
+
+  <form action="">
+    <!-- OR THIS!!!! -->
+    <input onclick="console.log('CLICKED THE INPUT')" type="range" min="10" max="50">
+  </form>
+  <script src="app.js"></script>
+</body>
+
+</html>

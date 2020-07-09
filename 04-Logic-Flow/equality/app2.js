@@ -1,0 +1,1 @@
+console.log(1-2, "hello", true, 2 === "2")

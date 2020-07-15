@@ -1,4 +1,4 @@
-const todo = document.querySelector('#todos .todo');
+const todo = document.querySelector('#todos .todo'); // grab the first .todo
 
 // Setting styles one at a time is not ideal:
 // todo.style.color = 'gray';
@@ -19,8 +19,19 @@ todo.classList.add('done');
 //to remove it
 todo.classList.remove('done');
 //to toggle:
-todo.classList.toggle('done'); //add
-todo.classList.toggle('done'); //remove
-todo.classList.toggle('done'); //add
-todo.classList.toggle('done'); //remove
-todo.classList.toggle('done'); //add
+todo.classList.toggle('done'); // add, returns true
+todo.classList.toggle('done'); // remove, returns false
+todo.classList.toggle('done'); // add
+todo.classList.toggle('done'); // remove
+todo.classList.toggle('done'); // add
+
+
+todo.className; // 'todo done'
+todo.getAttribute('class'); // 'todo done'
+
+
+// also exists
+todo.classList.replace('done', 'whatever');
+todo.classList.replace('whatever', 'done');
+
+todo.classList.contains('done'); // true

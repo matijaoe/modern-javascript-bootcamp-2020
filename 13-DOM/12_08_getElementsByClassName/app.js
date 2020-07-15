@@ -9,6 +9,12 @@ for (let el of specials) {
   console.log(el);
 }
 
+
+const ul = document.getElementsByTagName('ul')[0];
+// we can narrow within
+ul.getElementsByClassName('special');
+ul.getElementsByTagName('li');
+
 //We can use spread to make an actual array:
 const arr = [...specials];
 arr.pop() //this works because it's now an array!

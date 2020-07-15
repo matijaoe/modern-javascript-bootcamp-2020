@@ -24,6 +24,7 @@ const person = {
   },
   laugh: () => {
     //Arrow functions don't get their 'own' this.
+    //THIS refers to window object
     console.log(this);
     console.log(`${this.nickName} says HAHAHAHAH`)
   }

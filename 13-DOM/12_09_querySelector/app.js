@@ -17,6 +17,7 @@ document.querySelector('section ul li.special');
 // ****************
 // querySelectorAll
 // ****************
+// always returns an array-like object, even if it only has one element in it
 
 // To find ALL li's on the page:
 document.querySelectorAll('li');

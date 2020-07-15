@@ -16,11 +16,10 @@ const team = {
   [role2]: person2,
   [1 + 6 + 9]: 'sixteen'
 }
+// {16: "sixteen", host: "Jools Holland", Director: "James Cameron"}
 
 // function addProp(obj, k, v) {
-//   const copy = {
-//     ...obj
-//   };
+//   const copy = { ...obj };
 //   copy[k] = v;
 //   return copy;
 // }
@@ -32,8 +31,13 @@ const team = {
 //   }
 // }
 
+// arrow function with implicit return
+// we're returning an object so we gotta wrap it in paranthesis cos js thinks it's a block ({})
 const addProp = (obj, k, v) => ({
   ...obj,
   [k]: v
 })
+
 const res = addProp(team, 'happy', ':)')
+// {16: "sixteen", host: "Jools Holland", Director: "James Cameron", happy: ":)"}
+// team stayed unchanged btw

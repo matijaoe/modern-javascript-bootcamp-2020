@@ -78,11 +78,17 @@ const myDeck = {
         })
       }
     }
+    // we dont need to return it bcs we are changing deck in place
     // return deck;
   },
   drawCard() {
-    const card = this.deck.pop();
-    this.drawnCards.push(card);
+    // const card = this.deck.pop();
+    // this.drawnCards.push(card);
+
+    //with destructuring
+    const { deck, drawnCards } = this;
+    const card = deck.pop();
+    drawnCards.push(card);
     return card;
   },
   drawMultiple(numCards) {
@@ -93,14 +99,12 @@ const myDeck = {
     return cards;
   },
   shuffle() {
-    const {
-      deck
-    } = this;
+    const { deck } = this;
     // loop over array backwards
     for (let i = deck.length - 1; i > 0; i--) {
       //pick random index before current element
       let j = Math.floor(Math.random() * (i + 1));
-      //swap
+      //swap (with destructuring)
       [deck[i], deck[j]] = [deck[j], deck[i]];
     }
   }

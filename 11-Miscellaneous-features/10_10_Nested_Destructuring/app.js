@@ -29,3 +29,5 @@ const [, silverMedal] = results; // gets 2nd object from results
 const { country2 } = silverMedal; // "Ethiopia"
 // or if we want a custom name, pass in key: custom-name
 const { country: nation } = silverMedal; // "Ethiopia"
+
+<=

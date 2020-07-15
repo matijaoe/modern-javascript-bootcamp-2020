@@ -24,6 +24,6 @@ console.log(cephCopy === cephalopods) // false, because they are unique refferen
 //cephcopy.push['dog']; // it would modify BOTH arrays, beacuse they are pointing to the same thing, as long as we dont reinitialize either
 //console.log(cephCopy === cephalopods) // true, because they are unique refferences
 
-// spread strings in an array - 2 mthods
+// spread strings in an array - 2 methods
 'abcdefg'.split(''); // ["a", "b", "c", "d", "e", "f", "g"]
 [...'abcdefg']; // ["a", "b", "c", "d", "e", "f", "g"]

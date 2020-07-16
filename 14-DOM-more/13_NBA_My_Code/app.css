@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scrollbar-width: thin;
+}
+
+body {
+	padding: 3rem;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-size: 20px;
+	background: #333;
+	color: white;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: gray;
+	border-radius: 8px;
+}
+
+section:not(:last-of-type) {
+	margin-bottom: 2em;
+}
+
+ul {
+	list-style: none;
+	border-radius: 6px;
+	overflow-x: hidden;
+	color: black;
+
+	max-width: 800px;
+	margin: 0 auto;
+
+	box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+ul li {
+	padding: 0.5em 1em;
+	cursor: crosshair;
+	transition: all 400ms;
+}
+
+ul:hover li:not(:hover) {
+	filter: brightness(60%);
+}
+
+.win {
+	background: #81c784;
+}
+
+.loss {
+	background: #e57373;
+}
+
+.target-team {
+	font-size: 2em;
+	color: #fefefe;
+	margin: 0.5em;
+	border-bottom: 2px solid;
+	display: inline-block;
+	padding-bottom: 0.3em;
+	line-height: 1;
+}

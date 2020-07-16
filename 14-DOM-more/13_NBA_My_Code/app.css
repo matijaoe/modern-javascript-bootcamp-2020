@@ -47,7 +47,7 @@ ul {
 ul li {
 	padding: 0.5em 1em;
 	cursor: crosshair;
-	transition: all 400ms;
+	transition: all 200ms;
 }
 
 ul:hover li:not(:hover) {

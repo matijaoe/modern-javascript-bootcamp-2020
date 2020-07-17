@@ -1,12 +1,32 @@
+body {
+	font-family: 'Monoton', cursive;
+	transition: all 300ms;
+	padding: 0;
+	margin: 0;
+}
+
 #boxes {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+
 .box {
 	width: 200px;
 	height: 200px;
+	cursor: pointer;
+
+	transition: all 300ms;
 }
+
+.box:hover {
+	transform: scale(0.9);
+}
+
 h1 {
 	text-align: center;
+	padding: 0.2em;
+	background: rgba(255, 255, 255, 0.65);
+	font-weight: normal;
+	font-size: 3em;
 }

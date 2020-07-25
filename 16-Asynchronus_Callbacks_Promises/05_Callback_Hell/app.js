@@ -1,5 +1,9 @@
 const btn = document.querySelector('button');
 
+// window.innerWidth -> width of viewpwort
+// document.body.clientWidth -> width of content + padding + border (without margins=)
+
+
 //This function moves an element "amount" number of pixels after a delay.
 //If the element will stay on screen, we move the element and call the onSuccess callback function
 //If the element will move off screen, we do not move the element and instead call the onFailure callback

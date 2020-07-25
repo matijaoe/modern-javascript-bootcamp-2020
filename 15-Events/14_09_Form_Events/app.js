@@ -6,6 +6,7 @@ const veggieSelect = document.querySelector('#veggie');
 
 form.addEventListener('submit', function(e) {
 	e.preventDefault(); //stops the request from being sent (prevents page reload)
+	console.log(e);
 	console.log('cc', creditCardInput.value);
 	console.log('terms', termsCheckbox.checked);
 	console.log('veggieSelect', veggieSelect.value);

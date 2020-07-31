@@ -11,7 +11,8 @@ class Pet {
 
 class Cat extends Pet {
 	constructor(name, age, livesLeft = 9) {
-		console.log('IN CAT CONSTRUCTOR!');
+		// console.log('IN CAT CONSTRUCTOR!');
+		console.log(`IN ${Cat.name.toUpperCase()} CONSTRUCTOR!`);
 		super(name, age);
 		this.livesLeft = livesLeft;
 	}
@@ -28,3 +29,6 @@ class Dog extends Pet {
 		return `${this.name} scarfs his food!`;
 	}
 }
+
+const micika = new Cat('micika', 3);
+const megi = new Dog('megi', 8);

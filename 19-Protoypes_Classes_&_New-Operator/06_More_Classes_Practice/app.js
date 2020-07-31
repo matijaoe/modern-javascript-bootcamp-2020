@@ -78,6 +78,7 @@ class Color {
 		this.l = l;
 	}
 }
+
 const red = new Color(255, 67, 89, 'tomato');
 red.hsl();
 red.opposite();

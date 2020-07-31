@@ -7,9 +7,11 @@ const willGetYouADog = new Promise((resolve, reject) => {
 		reject();
 	}
 });
+
 willGetYouADog.then(() => {
 	console.log('YAY WE GOT A DOG!!!!');
 });
+
 willGetYouADog.catch(() => {
 	console.log(':( NO DOG');
 });

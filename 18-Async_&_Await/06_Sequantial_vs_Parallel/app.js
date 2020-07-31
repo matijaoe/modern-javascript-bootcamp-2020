@@ -42,6 +42,7 @@ async function lightShow() {
 	await changeBodyColor('indigo', 1000);
 	await changeBodyColor('violet', 1000);
 }
+
 // IN PARALLEL...
 // Everything is "sent off" at the same time
 // async function lightShow() {

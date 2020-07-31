@@ -1,3 +1,22 @@
+body {
+	background: snow;
+	color: black;
+	font-family: 'Poppins', sans-serif;
+}
+
 button {
-	font-size: 50px;
+	font-size: 30px;
+	padding: 0.5em 1em;
+	background: darksalmon;
+	border: 2px solid salmon;
+	color: black;
+	font-family: inherit;
+	border-radius: 8px;
+	box-shadow: 2px 2px 0 snow, 5px 5px 0 rgba(0, 0, 0, 0.8);
+	cursor: crosshair;
+	
+}
+
+button:focus {
+	outline: none;
 }

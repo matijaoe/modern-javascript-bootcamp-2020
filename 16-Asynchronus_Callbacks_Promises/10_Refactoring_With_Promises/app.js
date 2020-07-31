@@ -16,6 +16,7 @@ const moveX = (element, amount, delay) => {
 };
 
 const btn = document.querySelector('button');
+
 moveX(btn, 100, 1000)
 	.then(() => moveX(btn, 100, 1000))
 	.then(() => moveX(btn, 100, 1000))
@@ -27,14 +28,17 @@ moveX(btn, 100, 1000)
 	.then(() => moveX(btn, 100, 1000))
 	.then(() => moveX(btn, 100, 1000))
 	.then(() => moveX(btn, 100, 1000))
-	.then(() => moveX(btn, 100, 1000))
+	.then(() => {
+		console.log('%cwoah, big screen, big dick too', 'color:pink; font-size: 18px');
+		return moveX(btn, 100, 1000);
+	})
 	.then(() => moveX(btn, 100, 1000))
 	.then(() => moveX(btn, 100, 1000))
 	.then(() => moveX(btn, 100, 1000))
 	.then(() => moveX(btn, 100, 1000))
 	.catch(({ bodyBoundary, amount, elRight }) => {
-		console.log(`Cannot Move! Body is ${bodyBoundary}px wide`);
-		console.log(`Element is at ${elRight}px, ${amount}px is too large!`);
+		console.log(`%cCannot Move! Body is ${bodyBoundary}px wide`, 'color:salmon; font-size: 18px');
+		console.log(`%cElement is at ${elRight}px, ${amount}px is too large!`, 'color:salmon; font-size: 18px');
 	});
 
 //This function moves an element "amount" number of pixels after a delay.

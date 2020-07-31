@@ -4,11 +4,11 @@ const fakeRequest = (url) => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 			const pages = {
-				'/users' : [
+				'/users': [
 					{ id: 1, username: 'Bilbo' },
 					{ id: 5, username: 'Esmerelda' }
 				],
-				'/about' : 'This is the about page!'
+				'/about': 'This is the about page!'
 			};
 			const data = pages[url];
 			if (data) {

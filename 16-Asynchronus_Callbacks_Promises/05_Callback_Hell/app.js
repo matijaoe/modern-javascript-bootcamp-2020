@@ -84,3 +84,15 @@ moveX(
 		alert('CANNOT MOVE FURTHER!');
 	}
 );
+
+
+// SAME SOLUTION BUT WITH PROMISES
+// moveXPromise(btn, 100, 1000)
+// 	.then(() => moveXPromise(btn, 100, 100))
+// 	.then(() => moveXPromise(btn, 100, 100))
+// 	.then(() => moveXPromise(btn, 100, 100))
+// 	.then(() => moveXPromise(btn, 100, 100))
+// 	.then(() => moveXPromise(btn, 100, 100))
+// 	.catch((position) => {
+// 		alert('CANNOT MOVE FURTHER');
+// 	});

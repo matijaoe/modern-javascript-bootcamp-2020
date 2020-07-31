@@ -12,7 +12,7 @@ const printPlanets = (data) => {
 	return Promise.resolve(data.next);
 };
 
-const fetchNextPlanets = (url = 'https://swapi.co/api/planets/') => {
+const fetchNextPlanets = (url = 'https://swapi.dev/api/planets/') => {
 	return fetch(url);
 };
 
@@ -29,3 +29,31 @@ fetchNextPlanets()
 		console.log('SOMETHING WENT WRONG WITH FETCH!');
 		console.log(err);
 	});
+
+
+// const printPlanets = (data) => {
+// 	console.log('Loaded 10 more planets...');
+// 	for (let planet of data.results) {
+// 		console.log(planet.name);
+// 	}
+// 	return fetch(data.next);
+// };
+
+// const fetchNextPlanets = (url = 'https://swapi.dev/api/planets/') => {
+// 	return fetch(url);
+// };
+
+// fetchNextPlanets()
+// 	.then(checkStatusAndParse)
+// 	.then(printPlanets)
+// 	// .then(fetchNextPlanets)
+// 	.then(checkStatusAndParse)
+// 	.then(printPlanets)
+// 	// .then(fetchNextPlanets)
+// 	.then(checkStatusAndParse)
+// 	.then(printPlanets)
+// 	.catch((err) => {
+// 		console.log('SOMETHING WENT WRONG WITH FETCH!');
+// 		console.log(err);
+// 	});
+

@@ -39,23 +39,26 @@ const fakeRequest = (url) => {
 	});
 };
 
+
+// we can chain them bcs each callback returns a callback (remember js.info), we dont have to go through callback hell
 fakeRequest('/users')
 	.then((res) => {
-		console.log(res);
+		console.log(res); // {status: 200, data: Array(2)}
 		const id = res.data[0].id;
 		return fakeRequest(`/users/${id}`);
 	})
 	.then((res) => {
-		console.log(res);
+		console.log(res); // status: 200, data: {id: 1, username: "Bilbo", upvotes: 360, city: "Lisbon", topPostId: 454321}}
 		const postId = res.data.topPostId;
 		return fakeRequest(`/posts/${postId}`);
 	})
 	.then((res) => {
-		console.log(res);
+		console.log(res); // status: 200, data: {id: 454321, title: "Ladies & Gentlemen, may I introduce my pet pig, Hamlet"}}
 	})
 	.catch((err) => {
 		console.log('OH NO!', err);
 	});
+	// we only need one catch if ANY of them screws up, aka if they're rejected
 
 // ************************************************
 // ATTEMPT 2 (deliberate error to illustrate CATCH)

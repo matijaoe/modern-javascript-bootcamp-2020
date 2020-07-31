@@ -1,15 +1,17 @@
 // ********************************
 // CHAINING REQUESTS USING AXIOS
 // ********************************
-const fetchNextPlanets = (url = 'https://swapi.co/api/planets/') => {
+const fetchNextPlanets = (url = 'https://swapi.dev/api/planets/') => {
 	console.log(url);
 	return axios.get(url);
 };
+// destructure the response to just the data
 const printPlanets = ({ data }) => {
 	console.log(data);
 	for (let planet of data.results) {
 		console.log(planet.name);
 	}
+	// value in parentshesis will be passed intro next .then() calback, which is fetchNextPlanets(...)
 	return Promise.resolve(data.next);
 };
 
@@ -40,7 +42,7 @@ fetchNextPlanets()
 // 	return Promise.resolve(data.next);
 // };
 
-// const fetchNextPlanets = (url = 'https://swapi.co/api/planets/') => {
+// const fetchNextPlanets = (url = 'https://swapi.dev/api/planets/') => {
 // 	return fetch(url);
 // };
 
@@ -56,4 +58,20 @@ fetchNextPlanets()
 // 	.catch((err) => {
 // 		console.log('SOMETHING WENT WRONG WITH FETCH!');
 // 		console.log(err);
+// 	});
+
+
+//* trying stuff out on my own
+
+// axios.get('https://swapi.dev/api/planets/')
+// 	.then(({ data }) => {
+// 		let firstPlanet = data.results[0]
+// 		return Promise.resolve(firstPlanet)
+// 	})
+// 	.then(planet => {
+// 		console.log(planet);
+// 		return axios.get(planet.residents[0]);
+// 	})
+// 	.then(({ data: resident }) => {
+// 		console.log(resident.name);
 // 	});

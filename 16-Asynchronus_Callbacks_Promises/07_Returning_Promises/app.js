@@ -1,3 +1,5 @@
+// Function returns a promise
+
 const makeDogPromise = () => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
@@ -11,6 +13,8 @@ const makeDogPromise = () => {
 		}, 5000);
 	});
 };
+
+// Beacause it returns, we can chain .then and .catch together, only one will run
 makeDogPromise()
 	.then(() => {
 		console.log('YAY WE GOT A DOG!!!!');

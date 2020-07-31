@@ -22,17 +22,45 @@
 // firstReq.send();
 // console.log('Request Sent!');
 
-fetch('https://swapi.co/api/planetsuy21/')
+// Fetch returns a promise (pending, resolved, rejected)
+// fetch('https://swapi.dev/api/planetsuyu/')
+// 	.then((response) => {
+// 		// catches 404's
+// 		if (!response.ok)
+// 		// throws error so catch catches it
+// 			throw new Error(`Status Code Error: ${response.status}`);
+
+// 		// second returned promise, we read it with json() 
+// 		response.json().then((data) => {
+// 			for (let planet of data.results) {
+// 				console.log(planet.name);
+// 			}
+// 		});
+// 	})
+// 	// does not catch 404 or 500, only network errors and such
+// 	.catch((err) => {
+// 		console.log('SOMETHING WENT WRONG WITH FETCH!');
+// 		console.log(err);
+// 	});
+
+
+// Fetch returns a promise (pending, resolved, rejected)
+fetch('https://swapi.dev/api/planets/')
 	.then((response) => {
+		// catches 404's
 		if (!response.ok)
+			// throws error so catch catches it
 			throw new Error(`Status Code Error: ${response.status}`);
 
-		response.json().then((data) => {
-			for (let planet of data.results) {
-				console.log(planet.name);
-			}
-		});
+		// second returned promise, we read it with json() 
+		return response.json()
 	})
+	.then((data) => {
+		for (let planet of data.results) {
+			console.log(planet.name);
+		}
+	})
+	// does not catch 404 or 500, only network errors and such
 	.catch((err) => {
 		console.log('SOMETHING WENT WRONG WITH FETCH!');
 		console.log(err);

@@ -1,5 +1,5 @@
 axios
-	.get('https://swapi.co/api/planets/')
+	.get('https://swapi.dev/api/planets/')
 	.then((res) => {
 		//We don't have to parse the JSON!
 		console.log(res.data);
@@ -10,7 +10,7 @@ axios
 	});
 
 axios
-	.get('https://swapi.co/api/planetaslkjdaklsjds/') //BAD URL!
+	.get('https://swapi.dev/api/planetaslkjdaklsjds/') //BAD URL!
 	.then((res) => {
 		//We don't need to check for a 200 status code, because...
 		//Axios will reject the promise for us, unlike fetch!
@@ -39,7 +39,7 @@ axios
 // 	return Promise.resolve(data.next);
 // };
 
-// const fetchNextPlanets = (url = 'https://swapi.co/api/planets/') => {
+// const fetchNextPlanets = (url = 'https://swapi.dev/api/planets/') => {
 // 	return fetch(url);
 // };
 

@@ -4,7 +4,7 @@ const moveX = (element, amount, delay) => {
 			const bodyBoundary = document.body.clientWidth;
 			const elRight = element.getBoundingClientRect().right;
 			const currLeft = element.getBoundingClientRect().left;
-			if (elRight + amount > bodyBoundary) {
+			if (elRight + amount > bodyBoundary || currLeft + amount < 0) {
 				reject({ bodyBoundary, elRight, amount });
 			}
 			else {
@@ -16,6 +16,8 @@ const moveX = (element, amount, delay) => {
 };
 
 const btn = document.querySelector('button');
+
+
 async function animateRight(el, amt) {
 	await moveX(el, amt, 1000);
 	await moveX(el, amt, 1000);

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Timer ⏳</title>
+        <meta name="author" content="Matija Osrečki">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+    </head>
+
+    <body>
+        <div class="timer">
+            <div class="controls">
+                <input type="text" id="duration" value="10" class="duration">
+                <div>
+                    <button id="start" class="btn"><i class="fas fa-play"></i></button>
+                    <button id="pause" class="btn"><i class="fas fa-pause"></i></button>
+                </div>
+            </div>
+            <svg class="dial">
+                <circle r='190' cx='200' cy='200' transform='rotate(-90 200 200)'></circle>
+            </svg>
+        </div>
+
+
+
+        <script src="timer.js"></script>
+        <script src="index.js"></script>
+    </body>
+
+</html>

@@ -1,3 +1,5 @@
+// https://timer69.vercel.app
+
 const durationInput = document.querySelector('#duration');
 const startButton = document.querySelector('#start');
 const pauseButton = document.querySelector('#pause');
@@ -6,21 +8,28 @@ const circle = document.querySelector('circle');
 const perimeter = circle.getAttribute('r') * 2 * Math.PI;
 circle.setAttribute('stroke-dasharray', perimeter);
 
-let currentOffset = 0;
+let duration;
 
 const timer = new Timer(durationInput, startButton, pauseButton, {
-    onStart() {
-        console.log('Timer started! ⏳');
+    onStart(totalDuration) {
+        duration = totalDuration;
     },
 
-    onTick() {
-        circle.setAttribute('stroke-dashoffset', currentOffset);
-        currentOffset -= 1;
-
+    onTick(timeRemaining) {
+        circle.setAttribute('stroke-dashoffset',
+            perimeter * timeRemaining / duration - perimeter
+        );
     },
 
     onComplete() {
         console.log('Timer completed ✅');
+        console.log();
     }
 
 });
+
+
+// 1193.8 * 6 / 6 - 1193.8 = 0
+// 1193.8 * 3 / 6 - 1193.8 = -596.9
+// 1193.8 * .05 / 6 - 1193.8 = -1183.85
+// 1193.8 * 0 / 6 - 1193.8 = -1193.8

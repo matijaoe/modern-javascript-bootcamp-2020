@@ -1,8 +1,4 @@
-// create autocomplete widget
-createAutocomplete({
-    // where to render autocomplete to
-    root: document.querySelector('.autocomplete'),
-
+const autoCompleteConfig = {
     // how to show individual item
     renderOption(movie) {
         const imgPlaceholder = 'https://semantic-ui.com/images/wireframe/image.png';
@@ -14,7 +10,7 @@ createAutocomplete({
             ${movie.Title} (${movie.Year})
         `;
     },
- 
+
     // what to do when someone click on the item
     onOptionSelect(movie) {
         // fetch more elaborate movie details
@@ -34,14 +30,27 @@ createAutocomplete({
                 s: searchTerm
             }
         });
-
         if (response.data.Error) {
             console.log('No movies found');
             return [];
         }
-
         return response.data.Search;
     }
+};
+
+
+// create left autocomplete widget
+createAutocomplete({
+    // where to render autocomplete to
+    root: document.querySelector('#left-autocomplete'),
+    // unpack all object properties and put it here
+    ...autoCompleteConfig
+});
+
+// create right autocomplete widget
+createAutocomplete({
+    root: document.querySelector('#right-autocomplete'),
+    ...autoCompleteConfig
 });
 
 // function to fetch elaborate data for the movie
@@ -59,6 +68,7 @@ const onMovieSelect = async movie => {
 
 // return HTML for movie stats
 const movieTemplate = (movieDetail) => {
+    // TODO fix Rotten tomatoes (The Gentlemen) - fixed but needs refactor
     return `
         <article class="media">
             <figure class="media-left">
@@ -87,7 +97,9 @@ const movieTemplate = (movieDetail) => {
             <p class="subtitle">Box Office</p>
         </article>
         <article class="notification is-primary">
-            <p class="title">${movieDetail.Ratings[1] ? movieDetail.Ratings[1].Value : 'N/A'}</p>
+            <p class="title">${movieDetail.Ratings[1] ?
+            movieDetail.Ratings[1].Source === 'Rotten Tomatoes' ?
+                movieDetail.Ratings[1].Value : 'N/A' : 'N/A'}</p>
             <p class="subtitle">Rotten Tomatoes</p>
         </article>
         <article class="notification is-primary">

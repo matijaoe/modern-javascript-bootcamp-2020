@@ -34,6 +34,11 @@ figure .image img {
   margin-top: 20px !important;
 }
 
+.title {
+  font-family: 'Arvo', serif;
+  font-weight: 400;
+}
+
 .title .icon {
   margin-left: 15px;
 }

@@ -16,7 +16,7 @@ const fetchData = async (searchTerm) => {
 
 const root = document.querySelector('.autocomplete');
 root.innerHTML = `
-    <label<b>Search for a movie</b></label>
+    <label><b>Search for a movie</b></label>
     <input class="input">
     <div class="dropdown">
         <div class="dropdown-menu">
@@ -25,24 +25,48 @@ root.innerHTML = `
     </div>
 `;
 
+
+
 const input = document.querySelector('input');
 const dropdown = document.querySelector('.dropdown');
 const resultsWrapper = document.querySelector('.results');
 
 const onInput = async event => {
     const movies = await fetchData(event.target.value);
-    // console.log(movies);
-    for (let movie of movies) {
-        console.log(movie);
-        const div = document.createElement('div');
-        div.classList.add('suggestion');
 
-        div.innerHTML = `
-            <img src="${movie.Poster}">
-            <h1>${movie.Title}</h1>
+    // clear data on new input
+    resultsWrapper.innerHTML = '';
+
+    // if no movies found
+    if (!movies.length) {
+        dropdown.classList.remove('is-active');
+        return;
+    }
+
+    // open the dropdown
+    dropdown.classList.add('is-active');
+
+    
+    console.log(movies[0]);
+    for (let movie of movies) {
+        const option = document.createElement('a');
+
+        const placeholderImg = 'https://semantic-ui.com/images/wireframe/image.png';
+        const imgSrc = movie.Poster === 'N/A' ? placeholderImg : movie.Poster;
+
+
+        option.classList.add('dropdown-item');
+        option.innerHTML = `
+            <img src="${imgSrc}"/>
+            ${movie.Title.trim()}
         `;
 
-        document.querySelector('#target').append(div);
+        option.addEventListener('click', () => {
+            dropdown.classList.remove('is-active');
+            input.value = movie.Title;
+        })
+
+        resultsWrapper.append(option);
     }
 };
 
@@ -50,5 +74,16 @@ const onInput = async event => {
 // seperating them makes debounce reusable for different stuff
 input.addEventListener('input', debounce(onInput, 500));
 
+document.addEventListener('click', event => {
+    // close the dropdown when clicked outside root
+    if (!root.contains(event.target)) {
+        dropdown.classList.remove('is-active');
+    } else if (input.contains(event.target)) {
+        // reopen the dropdown when clicking on input if dropdown has data
+        if (resultsWrapper.querySelector('a')) {
+            dropdown.classList.add('is-active');
+        };
+    }
+});
 
 

@@ -5,7 +5,7 @@
 }
 
 html {
-	background: #222;
+	/* background: #222; */
 	scrollbar-width: thin;
 }
 
@@ -32,7 +32,7 @@ figure .image img {
 
 .results {
 	max-height: 500px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .title .icon {
@@ -51,10 +51,13 @@ figure .image img {
 .dropdown-item {
 	display: flex;
 	align-items: center;
-	height: 60px;
+	height: 70px;
 }
 
 .dropdown-item img {
-	height: 50px;
-	margin-right: 10px;
+	display: block;
+	height: 60px;
+	width: 40px;
+	object-fit: contain;
+	margin-right: 15px;
 }

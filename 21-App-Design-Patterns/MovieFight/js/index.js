@@ -95,14 +95,7 @@ const runComparison = () => {
         const leftSideValue = +leftStat.dataset.value;
         const rightSideValue = +rightStat.dataset.value;
 
-        console.log(leftSideValue, rightSideValue);
-        console.log('leftSideValue > rightSideValue', leftSideValue > rightSideValue);
-        console.log('leftSideValue < rightSideValue', leftSideValue < rightSideValue);
-        console.log('leftSideValue == rightSideValue', leftSideValue == rightSideValue);
-
-
         if (leftSideValue > rightSideValue) {
-            // TODO classes stays
 
             // remove leftovers
             // leftStat.classList.remove('is-warning');
@@ -130,12 +123,13 @@ const runComparison = () => {
 
 // return HTML for movie stats
 const movieTemplate = (movieDetail) => {
-    const dollars = parseInt(movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, '')) || 0;
+    let dollars;
+    if (movieDetail.BoxOffice) {
+        dollars = parseInt(movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, '')) || 0;
+    }
     const metascore = parseInt(movieDetail.Metascore) || 0;
     const imdbRating = parseFloat(movieDetail.imdbRating) || 0;
     const imdbVotes = parseInt(movieDetail.imdbVotes.replace(/,/g, '')) || 0;
-
-    // console.log(metascore, imdbRating, imdbVotes);
 
     const awards = movieDetail.Awards.split(' ').reduce((total, curr) => {
         let value = parseInt(curr);
@@ -145,7 +139,6 @@ const movieTemplate = (movieDetail) => {
         }
         return total + value;
     }, 0);
-    console.log(awards);
 
     // TODO fix Rotten tomatoes
     return `

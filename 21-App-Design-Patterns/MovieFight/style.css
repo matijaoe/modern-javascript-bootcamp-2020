@@ -9,6 +9,9 @@ html {
 	scrollbar-width: thin;
 }
 
+body {
+}
+
 .input {
 	margin: 5px 0 20px;
 }
@@ -28,6 +31,7 @@ figure.image {
 
 figure .image img {
   width: 128px;
+  width: 160px;
 }
 
 .notification {

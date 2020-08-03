@@ -11,12 +11,6 @@ const autoCompleteConfig = {
         `;
     },
 
-    // what to do when someone click on the item
-    onOptionSelect(movie) {
-        // fetch more elaborate movie details
-        onMovieSelect(movie);
-    },
-
     // what to backfill in the input when someobody clicks on the item
     inputValue(movie) {
         return movie.Title;
@@ -43,6 +37,14 @@ const autoCompleteConfig = {
 createAutocomplete({
     // where to render autocomplete to
     root: document.querySelector('#left-autocomplete'),
+
+    // what to do when someone click on the item
+    onOptionSelect(movie) {
+        // fetch more elaborate movie details
+        onMovieSelect(movie, document.querySelector('#left-summary'));
+        document.querySelector('.tutorial').classList.add('is-hidden');
+    },
+
     // unpack all object properties and put it here
     ...autoCompleteConfig
 });
@@ -50,11 +52,15 @@ createAutocomplete({
 // create right autocomplete widget
 createAutocomplete({
     root: document.querySelector('#right-autocomplete'),
+    onOptionSelect(movie) {
+        onMovieSelect(movie, document.querySelector('#right-summary'));
+        document.querySelector('.tutorial').classList.add('is-hidden');
+    },
     ...autoCompleteConfig
 });
 
 // function to fetch elaborate data for the movie
-const onMovieSelect = async movie => {
+const onMovieSelect = async (movie, summaryElement) => {
     const response = await axios.get('http://www.omdbapi.com/', {
         params: {
             apikey: 'ee59ae23',
@@ -63,7 +69,7 @@ const onMovieSelect = async movie => {
     });
     console.log(response.data);
 
-    document.querySelector('.summary').innerHTML = movieTemplate(response.data);
+    summaryElement.innerHTML = movieTemplate(response.data);
 };
 
 // return HTML for movie stats

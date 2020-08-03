@@ -5,8 +5,9 @@
 }
 
 html {
-	background: #fefefe;
+	background: hsl(0, 0%, 99%);
 	scrollbar-width: thin;
+
 }
 
 body {
@@ -16,59 +17,106 @@ body {
 	margin: 5px 0 20px;
 }
 
-
-.tutorial {
-  width: 600px;
-  text-align: center;
-  margin: auto;
-}
-
-figure.image {
-  display: flex;
-  justify-content: center;
-  background-color: black;
-}
-
-figure .image img {
-  width: 128px;
-  width: 160px;
-}
-
-.notification {
-  margin-top: 20px !important;
-}
-
 .title {
-  font-family: 'Arvo', serif;
-  font-weight: 400;
-}
-
-.title .icon {
-  margin-left: 15px;
+	font-family: 'Arvo', serif;
+	font-weight: 400;
 }
 
 .hero {
-  margin-bottom: 20px;
+	background: hsl(0, 0%, 96%);
+	background: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapercave.com%2Fwp%2F4gTNThG.png&f=1&nofb=1') no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+
+}
+
+.hero::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	background: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(10px);
+
+}
+
+/* .content h1 {
+	background: radial-gradient(
+		circle farthest-corner at 10% 20%,
+		rgba(153, 103, 186, 1) 41.2%,
+		rgba(0, 113, 227, 1) 90%
+	);
+	-webkit-background-clip: text;
+	color: transparent;
+} */
+
+.tutorial {
+	width: 600px;
+	text-align: center;
+	margin: auto;
+}
+
+figure.image {
+	display: flex;
+	justify-content: center;
+	background-color: black;
+}
+
+figure .image img {
+	width: 128px;
+	width: 160px;
+}
+
+.notification {
+	margin-top: 20px !important;
+}
+
+.notification .title {
+	font-size: 1.8rem;
+}
+
+.subtitle {
+	opacity: 0.85;
+}
+
+.title .icon {
+	margin-left: 15px;
+}
+
+.hero {
+	margin-bottom: 20px;
 }
 
 .forms {
-  display: flex;
-  justify-content: space-around;
+	display: flex;
+	justify-content: space-around;
 }
 
 .dropdown {
 	display: block;
 }
 
+.dropdown-content {
+	background: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(15px);
+}
+
+a.dropdown-item:hover {
+		background: hsla(0, 0%, 96%, 0.5);
+
+}
+
 .dropdown-item {
-  display: flex;
-  align-items: center;
-  height: 60px;
+	display: flex;
+	align-items: center;
+	height: 60px;
 }
 
 .dropdown-item img {
-  height: 50px;
-  margin-right: 10px;
+	height: 50px;
+	margin-right: 10px;
 }
- 
-

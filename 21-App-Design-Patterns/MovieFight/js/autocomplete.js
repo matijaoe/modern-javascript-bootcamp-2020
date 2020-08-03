@@ -8,8 +8,7 @@ const createAutocomplete = ({
 
     // create HTML for autocomplete widget
     root.innerHTML = `
-    <label><b>Search</b></label>
-    <input class="input">
+    <input class="input" placeholder="Search">
     <div class="dropdown">
         <div class="dropdown-menu">
             <div class="dropdown-content results"></div>

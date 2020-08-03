@@ -17,7 +17,7 @@ const autoCompleteConfig = {
 
     // how to fetch the data
     async fetchData(searchTerm) {
-        const response = await axios.get('http://www.omdbapi.com/', {
+        const response = await axios.get('https://www.omdbapi.com/', {
             params: {
                 apikey: 'ee59ae23',
                 s: searchTerm
@@ -62,7 +62,7 @@ let leftMovie;
 let rightMovie;
 // function to fetch elaborate data for the movie
 const onMovieSelect = async (movie, summaryElement, side) => {
-    const response = await axios.get('http://www.omdbapi.com/', {
+    const response = await axios.get('https://www.omdbapi.com/', {
         params: {
             apikey: 'ee59ae23',
             i: movie.imdbID
@@ -133,12 +133,13 @@ const movieTemplate = (movieDetail) => {
 
     let dollars;
     if (movieDetail.BoxOffice) {
-        dollars = parseInt(movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, '')) || 0;
+        dollars = parseInt(movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, ''));
     }
-    const metascore = parseInt(movieDetail.Metascore) || 0;
-    const imdbRating = parseFloat(movieDetail.imdbRating) || 0;
-    const imdbVotes = parseInt(movieDetail.imdbVotes.replace(/,/g, '')) || 0;
-    const rottenTomatoesRating = parseInt(rottenTomatoes) || 0;
+
+    const metascore = parseInt(movieDetail.Metascore);
+    const imdbRating = parseFloat(movieDetail.imdbRating);
+    const imdbVotes = parseInt(movieDetail.imdbVotes.replace(/,/g, ''));
+    const rottenTomatoesRating = parseInt(rottenTomatoes);
 
     const awards = movieDetail.Awards.split(' ').reduce((total, curr) => {
         let value = parseInt(curr);
@@ -148,10 +149,6 @@ const movieTemplate = (movieDetail) => {
         return total + value;
     }, 0);
 
-
-
-
-    // TODO fix Rotten tomatoes
     return `
         <article class="media">
             <figure class="media-left">
@@ -178,7 +175,7 @@ const movieTemplate = (movieDetail) => {
             <p class="subtitle">Awards</p>
         </article>
         <article data-value=${dollars} class="notification is-light">
-            <p class="title">${movieDetail.BoxOffice || 'idk tbh 🤷‍♂️'}</p>
+            <p class="title">${movieDetail.BoxOffice || 'N/A'}</p>
             <p class="subtitle">Box Office</p>
         </article>
         <article data-value=${metascore} class="notification is-light">
@@ -200,9 +197,3 @@ const movieTemplate = (movieDetail) => {
     `;
 };
 
-/*
-
-
-
-
-*/

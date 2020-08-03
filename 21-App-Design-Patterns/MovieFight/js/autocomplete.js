@@ -52,12 +52,31 @@ const createAutocomplete = ({
                 onOptionSelect(item);
             });
 
+
+            //TODO open first option on enter, works onyl the first time
+            // input.addEventListener('keyup', e => {
+            //     if (e.keyCode === 13) {
+            //         if (dropdown.classList.contains('is-active')) {
+            //             dropdown.classList.remove('is-active');
+            //             input.value = inputValue(item);
+
+            //             // fetch more elaborate details
+            //             onOptionSelect(item);
+            //         }
+            //     }
+            // });
+
             resultsWrapper.append(option);
         }
     };
 
     // on each input change, pass our custom fetch action to debounce function
     input.addEventListener('input', debounce(onInput, 500));
+
+
+
+    // TODO make it work for touch events
+
 
     document.addEventListener('click', event => {
         // close the dropdown when clicked outside root

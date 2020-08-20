@@ -1,9 +1,10 @@
 async function getPlanets() {
-	const res = await axios.get('https://swapi.co/api/planets/');
+	const res = await axios.get('https://swapi.dev/api/planets/');
 	console.log(res.data); //only runs once the previous line is complete (the axios promise is resolved)
 }
 
-getPlanets();
+let p = getPlanets();
+console.log(p);
 
 // Without async/await...
 

@@ -9,6 +9,20 @@ class Runner {
 
     async runTest() {
         for (let file of this.testFiles) {
+            const beforeEaches = [];
+            global.beforeEach = (fn) => {
+                beforeEaches.push(fn);
+            }
+
+            // variable available in every file (as windows on browser)
+            // node cant find it variable inside this file, 
+            // so it searches global object
+            global.it = (desc, fn) => {
+                // run func (func is only storing numbers in array which forEach fn will use)
+                beforeEaches.forEach(func => func());
+                fn();
+            }
+
             // execute the file
             require(file.name);
         }
@@ -32,11 +46,11 @@ class Runner {
                 const childFiles = await fs.promises.readdir(filepath);
 
                 // add children to the files array which we are already iterating over
-                // update each child's name to include its parent (it will join with absolute path in start of its iteration)
+                // update each child's name to include its parent 
+                // (it will join with absolute path in start of its iteration)
                 files.push(...childFiles.map(f => path.join(file, f)));
             }
         }
-        console.log(files);
     }
 }
 

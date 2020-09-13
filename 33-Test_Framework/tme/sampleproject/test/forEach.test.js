@@ -14,7 +14,7 @@ it('should sum an array', () => {
     });
 
     // run with 'mocha' to verify (cos its installed globally)
-    assert.strictEqual(total, 4, 'Expected forEach to sum the array');
+    assert.strictEqual(total, 6, 'Expected forEach to sum the array');
     numbers.push(3)
     numbers.push(3)
     numbers.push(3)
@@ -22,5 +22,5 @@ it('should sum an array', () => {
 });
 
 it('beforeEach is ran each time', () => {
-    assert.strictEqual(numbers.length, 5)
+    assert.strictEqual(numbers.length, 3)
 })

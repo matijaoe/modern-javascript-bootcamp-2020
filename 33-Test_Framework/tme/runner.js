@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 
+const forbiddenDirs = ['node_modules'];
+
 //  Collect all .test.js files
 class Runner {
     constructor() {
@@ -34,13 +36,12 @@ class Runner {
                 }
             };
 
-
             try {
                 // execute the file
                 require(file.name);
             } catch (error) {
                 console.log(chalk.red(error.stack));
-            } 
+            }
         }
     }
 
@@ -57,7 +58,7 @@ class Runner {
 
             if (stats.isFile() && file.endsWith('.test.js')) {
                 this.testFiles.push({ name: filepath, shortName: file });
-            } else if (stats.isDirectory()) {
+            } else if (stats.isDirectory() && !forbiddenDirs.includes(file)) {
                 // read contents of the folder
                 const childFiles = await fs.promises.readdir(filepath);
 

@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
+const render = require('./render');
 
 const forbiddenDirs = ['node_modules'];
 
@@ -15,6 +16,8 @@ class Runner {
         for (let file of this.testFiles) {
             console.log(chalk.gray`---- ${file.shortName}`);
             const beforeEaches = [];
+
+            global.render = render;
             // define the behaviour of beforeEach
             // store as many functions which will be always executed right before forEach method
             global.beforeEach = (fn) => {
@@ -24,10 +27,10 @@ class Runner {
             // node cant find it variable inside this file, 
             // so it searches global object (as window on browser)
             //* describes the behaviour of it method
-            global.it = (desc, fn) => {
+            global.it = async (desc, fn) => {
                 beforeEaches.forEach(func => func());
                 try {
-                    fn();
+                    await fn();
                     console.log(chalk.green(`\tOK - ${desc}`));
                 } catch (error) {
                     const message = error.message.replace(/\n/g, '\n\t\t');
